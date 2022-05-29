@@ -1,0 +1,90 @@
+local Notify = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local LeftMain = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Error = Instance.new("ImageLabel")
+local TitleHeader = Instance.new("TextLabel")
+local Description = Instance.new("TextLabel")
+local MainCorner = Instance.new("UICorner")
+local Close = Instance.new("ImageButton")
+
+local TS = game:GetService("TweenService")
+
+Notify.Name = "Notify"
+Notify.Parent = game:WaitForChild("CoreGui")
+Notify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = Notify
+Main.Active = true
+Main.BackgroundColor3 = Color3.fromRGB(254, 203, 196)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(1.15, 0, 0.855, 0)
+Main.Size = UDim2.new(0, 380, 0, 44)
+
+LeftMain.Name = "LeftMain"
+LeftMain.Parent = Main
+LeftMain.BackgroundColor3 = Color3.fromRGB(253, 122, 127)
+LeftMain.BorderSizePixel = 0
+LeftMain.Size = UDim2.new(0, 9, 0, 44)
+
+UICorner.CornerRadius = UDim.new(0.225, 0)
+UICorner.Parent = LeftMain
+
+Error.Name = "Error"
+Error.Parent = Main
+Error.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Error.BackgroundTransparency = 1.000
+Error.Position = UDim2.new(0.0342105255, 0, 0.181818187, 0)
+Error.Size = UDim2.new(0, 25, 0, 25)
+Error.Image = "rbxasset://textures/AvatarImporter/icon_error.png"
+
+TitleHeader.Name = "TitleHeader"
+TitleHeader.Parent = Main
+TitleHeader.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TitleHeader.BackgroundTransparency = 1.000
+TitleHeader.BorderSizePixel = 0
+TitleHeader.Position = UDim2.new(0.100000001, 0, 0, 0)
+TitleHeader.Size = UDim2.new(0, 83, 0, 17)
+TitleHeader.Font = Enum.Font.Gotham
+TitleHeader.Text = "Yujiro Hub"
+TitleHeader.TextColor3 = Color3.fromRGB(0, 0, 0)
+TitleHeader.TextSize = 14.000
+
+Description.Name = "Description"
+Description.Parent = Main
+Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Description.BackgroundTransparency = 1.000
+Description.BorderSizePixel = 0
+Description.Position = UDim2.new(0.15, 0, 0.425, 0)
+Description.Size = UDim2.new(0, 132, 0, 16)
+Description.Font = Enum.Font.Gotham
+Description.Text = "You are not whitelisted!"
+Description.TextColor3 = Color3.fromRGB(0, 0, 0)
+Description.TextSize = 14.000
+
+MainCorner.CornerRadius = UDim.new(0.15, 0)
+MainCorner.Name = "MainCorner"
+MainCorner.Parent = Main
+
+Close.Name = "Close"
+Close.Parent = Main
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Close.BackgroundTransparency = 1.000
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.915, 0, 0.275, 0)
+Close.Size = UDim2.new(0, 17.5, 0, 17.5)
+Close.Image = "rbxasset://textures/ui/Keyboard/close_button_icon.png"
+
+Close.MouseButton1Click:Connect(function()
+    TS:Create(Main, TweenInfo.new(1.125), {Position = UDim2.new(2.05, 0, 0.855, 0)}):Play()
+    task.wait(0.25)
+    Notify:Destroy()
+end)
+
+task.wait(0,55)
+TS:Create(Main, TweenInfo.new(.075), {Position = UDim2.new(0.802, 0, 0.855, 0)}):Play()
+task.wait(2.5)
+TS:Create(Main, TweenInfo.new(1.125), {Position = UDim2.new(2.05, 0, 0.855, 0)}):Play()
+task.wait(0.25)
+Notify:Destroy()
